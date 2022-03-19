@@ -11,6 +11,7 @@ public class DBUtils {
     private static Connection connection;
     private static Statement statement;
     private static ResultSet resultSet;
+    private static int id;
 
     /**
      * Create a jdbc connection using the url, username, password
