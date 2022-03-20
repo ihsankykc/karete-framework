@@ -1,4 +1,3 @@
-@ignore
 Feature: Data driven tests
   Scenario Outline: get token for user <email>
     Given url 'https://cybertek-reservation-api-qa3.herokuapp.com/'

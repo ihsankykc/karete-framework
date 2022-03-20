@@ -13,7 +13,7 @@ Feature: welcome to karate
 
   Scenario: variables
     * def name = 'Mike'
-    * print 'my name is' + name
+    * print 'my name is ' + name
     * def age = 20
     * print name,'is',age,'years old'
 

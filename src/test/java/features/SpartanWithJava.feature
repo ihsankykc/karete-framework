@@ -2,7 +2,7 @@
 Feature: Karate Java Integration
 
   Background:
-    * def spartanUrl = 'http://52.207.61.129:8000/'
+    * def spartanUrl = 'http://3.87.88.214:8000/'
   Scenario: Get a spartan with request header
     Given url spartanUrl
     And path "api/spartans"
@@ -42,6 +42,8 @@ Feature: Karate Java Integration
   Scenario: Create a spartan with Random Data (JAVA)
     * def SDG = Java.type('utilities.SpartanDataGenerator')
     * def newSpartan = SDG.createSpartan()
+#    run the static method in that class and capture the result
+#    the return map object is represented as a json
     Given  url spartanUrl
     And path "api/spartans"
     And header Accept = 'application/json'
@@ -72,7 +74,8 @@ Feature: Karate Java Integration
     And match response.data.name == newSpartan.name
     And def idToDelete = response.data.id
     Given url spartanUrl
-    And path 'api/spartans',idToDelete
+    And path 'api/spartans'
+    And path idToDelete
     When method DELETE
     Then status 204
 

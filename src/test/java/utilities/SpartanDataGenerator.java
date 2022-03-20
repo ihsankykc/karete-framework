@@ -9,7 +9,7 @@ public class SpartanDataGenerator {
 
     public static Map<String,Object> createSpartan(){
 
-        Faker faker = new Faker();  // bunun için dependency gerektirdi
+        Faker faker = new Faker();
 
         String name = faker.name().firstName();
         String gender = faker.demographic().sex();

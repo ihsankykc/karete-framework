@@ -13,7 +13,7 @@ Feature: Karate browser automation
     When submit().click("button[type='submit']")
     And retry(5, 15000).waitForUrl('https://cybertek-reservation-qa3.herokuapp.com/map')
     Then match driver.url == "https://cybertek-reservation-qa3.herokuapp.com/map"
-  @wip
+
   Scenario: search at google
     Given driver 'https://google.com'
     And input("input[name=q]", 'karate dsl')

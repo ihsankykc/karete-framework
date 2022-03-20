@@ -1,13 +1,13 @@
 Feature:  Parameters examples
 
   Background:
-    * def baseUrl = 'https://petstore.swagger.io/v2/store'
-    * def spartanUrl = 'http://52.207.61.129:8000/'
-    * def hrUrl = 'http://52.207.61.129:1000/ords/hr'
+    * def baseUrl = 'https://api.exchangerate.host'
+    * def spartanUrl = 'http://3.87.88.214:8000/'
+    * def hrUrl = 'http://3.87.88.214:1000/ords/hr'
 
   Scenario: path parameters
     Given url baseUrl
-    And path "inventory"
+    And path "/latest"
     When method get
     Then status 200
 
@@ -21,21 +21,21 @@ Feature:  Parameters examples
   Scenario: get ones spartan only
     Given url spartanUrl
     And path "api/spartans"
-    And path "9"
+    And path "10"
     When method get
     Then status 200
     And print response
-    And match response == {  "id": 9,  "name": "Florrie",  "gender": "Female",  "phone": 1702025787  }
+    And match response == {  "id": 10,  "name": "Lorenza",  "gender": "Female",  "phone": 3312820936  }
 
   Scenario: get ones spartan only
     * def expectedSpartan =
   """
    {
-    "id": 9,
-    "name": "Florrie",
+    "id": 10,
+    "name": "Lorenza",
     "gender": "Female",
-    "phone": 1702025787
-}
+    "phone": 3312820936
+    }
     """
     Given url spartanUrl
     And path "api/spartans"
@@ -67,7 +67,7 @@ Feature:  Parameters examples
 
   Scenario: hr regions example
         Given url hrUrl
-        And path 'regions'
+        And path '/regions'
         When method GET
         Then status 200
         And print response
